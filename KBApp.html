@@ -21,24 +21,110 @@
  <!-- Materialize Compiled and minified JavaScript -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
-
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Raleway:300" rel="stylesheet">
 	<title>Kraft Beerd App</title>
 
 </head>
 
 <body>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
+<div class="container">
 
+<!-- nav bar -->
+	<div class="row">
+		<div class="col s12">
+			<nav class="transparent z-depth-0">
+	     <div class="nav-wrapper">
+	       <a href="#" class="brand-logo center"><img src="assets/images/KB-logo-a.png" height="150px"></a>
+	       <ul id="nav-mobile" class="right hide-on-med-and-down">
+	         <li><a href="#" class="black-text">Sign In</a></li>
+	         <li><a href="#" class="black-text">Sign Out</a></li>
+	       </ul>
+	     </div>
+   	  </nav>
+		</div>
+	</div>
+
+<!-- jumbotron -->
+	<div class="row">
+		<div class="col s12">
+			<div class="card z-depth-0" id="jumbotron">
+				<div class="card-content black-text">
+					<span class="card-title center-align" id="jumbotron-h">Plan your next Williamsburg hangout!</span>
+					<p class="center-align">Use the buttons below to search from Williamsburg's most popular food & drink spots.</p>
+				</div>
 			</div>
 		</div>
 	</div>
 
+<!-- photo links -->
+	<div class="row">
+		 <div class="col s3">
+			 <div class="card z-depth-0">
+				 <div class="card-image">
+					 <img src="https://static.pexels.com/photos/237774/pexels-photo-237774.jpeg">
+						 <span class="card-title">BREWERY</span>
+				 </div>
+			 </div>
+		 </div>
 
+		 <div class="col s3">
+			 <div class="card z-depth-0">
+				 <div class="card-image">
+					 <img src="https://static.pexels.com/photos/65132/pexels-photo-65132.jpeg">
+					 <span class="card-title">PIZZA</span>
+				 </div>
+			 </div>
+		 </div>
 
-	<script src="assets/kraftbeard.js" type="text/javascript">
-	</script>
+		 <div class="col s3">
+			 <div class="card z-depth-0">
+				 <div class="card-image">
+					 <img src="https://static.pexels.com/photos/66636/pexels-photo-66636.jpeg">
+					 <span class="card-title">WINE BAR</span>
+				 </div>
+			 </div>
+		 </div>
+
+		 <div class="col s3">
+			 <div class="card z-depth-0">
+				 <div class="card-image">
+					 <img src="https://static.pexels.com/photos/163569/pexels-photo-163569.jpeg">
+					 <span class="card-title">BARBER</span>
+				 </div>
+			 </div>
+		 </div>
+	 </div> <!-- buttons row-->
+
+<!-- map and results -->
+<div class="row">
+	<div class="col s8">
+		<div class="card white darken-1 z-depth-0">
+			<div class="card-content black-text" id="map"> <!--Google Maps API div-->
+				<span class="card-title">MAP</span>
+				<p>MAP CONTENT</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col s4">
+		<div class="card white darken-1 z-depth-0">
+			<div class="card-content black-text">
+				<span class="card-title">RESULTS</span>
+				<div id="name"></div>
+				<div id="rating"></div>
+				<div id="address1"></div>
+				<div id="price"></div>
+				<div id="phone"></div>
+			</div>
+		</div>
+	</div>
+</div> <!--map and results row-->
+
+</div> <!--main container-->
+
+<!-- External JS -->
+<script src="assets/kraftbeard.js" type="text/javascript"></script>
 </body>
 </html>

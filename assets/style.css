@@ -1,0 +1,22 @@
+body {
+  background-image: url(../assets/images/KB-background.png);
+}
+
+#jumbotron {
+  margin-top: 10%;
+  background-color: #dac4b2;
+}
+
+#jumbotron-h {
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: 2em;
+}
+
+.card-content {
+  font-family: 'Raleway', sans-serif;
+}
+
+.card-title {
+  font-family: 'Raleway', sans-serif;
+
+}

@@ -1,14 +1,14 @@
 //+++++++++++++++++++MAP IS NEEDED BEFORE DOCUMENT READY FUNCTION++++++++++++++++++
 
 
-// //our starting lat: 40.708, lng: -73.957 
+// //our starting lat: 40.708, lng: -73.957
 
 // //This function creates a Google Map, available upon page load. initMap function doesn't need to be "called"
 // //The function call is part of this APIs call parameter (see html page, Google Maps API url in script tags)
 // //It creates and automatically loads the STYLED version of the map--default map is an option, however.
 // //Colors are based on Front-End's chosen color for the KraftBeerd heading; I plugged the color into Adobe & got a theme.
-// //Front-End, feel free to choose a different theme and plug those colors in below:   
-     
+// //Front-End, feel free to choose a different theme and plug those colors in below:
+
      function initMap() {
 
 
@@ -144,21 +144,21 @@
     position: {lat: 40.708, lng: -73.957},
     map: map,
     icon: image
- 
+
   });
 
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
-      
-     
+
+
 
   }
 
   $(document).ready(function() {
     		console.log( "ready!" );
 
-  
+
     // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB3TT3u_TIoFFxglNbgOUv3WZ1KHwFOmfo",
@@ -172,6 +172,43 @@
   });
 
 
- 
+//+++++++++++++++++++ BEER MAP API KEY AND AJAX CALL ++++++++++++++++++
+
+
+//beer mapping api key :  688a37b4a7135bbd9cadc8adec782fb2
+
+ var queryURL = "http://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
+
+
+ $.ajax({
+     url:queryURL,
+     method:"GET"
+   }).done(function(response){
+     var results = response;
+      console.log(results);
+
+    for (var i = 0; i < results.length-58; i++) {
+        var newDiv = $("<p>");
+        newDiv.addClass("brewAdd");
+        newDiv.html(results[i].street);
+        $("#address1").append(newDiv);
+        console.log(results[i].street);
+
+    }
+
+   });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // });

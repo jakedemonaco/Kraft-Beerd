@@ -152,8 +152,39 @@
         map.setMapTypeId('styled_map');
 
 
+        //latlng : Latitude: 40.72173, Longitude: -73.95805
+        //mock up of adding lat long to create a new marker on The map
+        function addMark(){
+        var myLatlng = new google.maps.LatLng(40.72173,-73.95805);
+        var mapOptions = {
+          zoom: 18,
+          center: myLatlng
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-  }
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title:"Hello World!"
+        });
+
+        var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+        var beerdMarker = new google.maps.Marker({
+          position: {lat: 40.72173, lng: -73.95805},
+          map: map,
+          icon: image
+
+        });
+        // To add the marker to the map, call setMap();
+        beerdMarker.setMap(map);
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+        }
+
+        $("#brewME").on("click", function(event){
+        addMark();
+        })
+}
 
   $(document).ready(function() {
     		console.log( "ready!" );
@@ -170,6 +201,8 @@
   };
   firebase.initializeApp(config);
   });
+
+
 
 
 //+++++++++++++++++++ BEER MAP API KEY AND AJAX CALL ++++++++++++++++++
@@ -199,8 +232,18 @@
    });
 
 
+//http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/ID
+var idURL = "http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + results[i] + "&s=json"
 
 
+$.ajax({
+    url:idURL,
+    method:"GET"
+  }).done(function(response){
+    var results = response;
+     console.log(results[0].lat);
+     console.log(results[0].lng);
+  });
 
 
 

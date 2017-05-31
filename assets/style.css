@@ -1,15 +1,19 @@
 body {
-  background-image: url(../assets/images/KB-background.png);
+	background-color: #feecdf;
+	background-image: url(../assets/images/RCBCbackgroundHalf.png);
+	background-size: cover;
+	height: 100%;
+	background-repeat: no-repeat;
+}
+h1 {
+	font-family: "News Cycle", sans-serif;
+	font-size: 450px;
 }
 
-#jumbotron {
-  margin-top: 10%;
-  background-color: #dac4b2;
-}
-
-#jumbotron-h {
-  font-family: 'Nothing You Could Do', cursive;
-  font-size: 2em;
+#wrapper {
+	margin-top: 20%;
+	margin-left: 5%;
+	margin-right: 6%;
 }
 
 .card-content {
@@ -22,6 +26,9 @@ body {
 }
 
 #map{
-
 	height:400px;
+}
+
+p {
+	font-size: 20px;
 }

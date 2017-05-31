@@ -13,84 +13,53 @@
     <!-- Materialize Compiled and minified JavaScript -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Raleway:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
     <!-- Makes Button Icon Work -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Firebase-->
     <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
     <!--Most stable and latest version of jQuery-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-     <!--Google Maps: API call is done in this format-->
+    <!--Google Maps: API call is done in this format-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVq_5rVixXpbEVR3iPtHR5sm6s4ikNxXY&callback=initMap"></script>
-     <!-- External JS -->
-        <script src="assets/kraftbeard.js" type="text/javascript"></script>
-
-
+    <!-- External JS -->
+    <script src="assets/kraftbeard.js" type="text/javascript"></script>
     <title>Kraft Beerd App</title>
 </head>
 
 <body>
-    <div class="container">
-        <!-- nav bar -->
+    <!-- map and results -->
+    <div id="wrapper">
         <div class="row">
-            <div class="col s12">
-                <nav class="transparent z-depth-0">
-                    <div class="nav-wrapper">
-                        <a href="#" class="brand-logo center"><img src="./assets/images/KB-logo-a.png" height="150px"></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="#" class="black-text">Sign In</a></li>
-                            <li><a href="#" class="black-text">Sign Out</a></li>
-                        </ul>
+            <div class="col s5">
+                <div class="card white darken-1 z-depth-0">
+                    <div class="card-content black-text" id="map">
+                        <!--Google Maps API div-->
+                        <span class="card-title">MAP</span>
+                        <p>MAP CONTENT</p>
                     </div>
-                </nav>
+                </div>
             </div>
-        </div>
-        <!-- jumbotron -->
-        <div class="row">
-            <div class="col s12">
-                <div class="card z-depth-0" id="jumbotron">
+            <div class="col s2">
+                <!-- spacer -->
+            </div>
+            <div class="col s5">
+                <div class="card white darken-1 z-depth-0">
                     <div class="card-content black-text">
-                        <span class="card-title center-align" id="jumbotron-h">Plan your next Williamsburg hangout!</span>
-                        <p class="center-align">Use the buttons below to search from Williamsburg's most popular food & drink spots.</p>
+                        <span class="card-title">RESULTS</span>
+                        <div id="name"></div>
+                        <div id="rating"></div>
+                        <div id="address1"></div>
+                        <div id="price"></div>
+                        <div id="phone"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- button -->
-        <div class="row">
-            <div class="col s12">
-                <a class=" brown darken-3 waves-effect waves-purple btn-large z-depth-0 right" id="brewME"><i class="material-icons right">local_bar</i></i>Drunk</a>
-            </div>
-            <!-- map and results -->
-            <div class="row">
-                <div class="col s8">
-                    <div class="card white darken-1 z-depth-0">
-                        <div class="card-content black-text" id="map">
-                            <!--Google Maps API div-->
-                            <span class="card-title">MAP</span>
-                            <p>MAP CONTENT</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s4">
-                    <div class="card white darken-1 z-depth-0">
-                        <div class="card-content black-text">
-                            <span class="card-title">RESULTS</span>
-                            <div id="name"></div>
-                            <div id="rating"></div>
-                            <div id="address1"></div>
-                            <div id="price"></div>
-                            <div id="phone"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--map and results row-->
+        <div class="center" id="summaryText">
+            <p>Kraft Beered is a Brewery Search app focusing on the general Brooklyn area.</p>
         </div>
-        <!--main container-->
-
-
-
+    </div>
 </body>
 
 </html>

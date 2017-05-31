@@ -8,6 +8,7 @@
 // //It creates and automatically loads the STYLED version of the map--default map is an option, however.
 // //Colors are based on Front-End's chosen color for the KraftBeerd heading; I plugged the color into Adobe & got a theme.
 // //Front-End, feel free to choose a different theme and plug those colors in below:
+// Some other comment
 
      function initMap() {
 
@@ -127,9 +128,10 @@
 
         // Create a map object, and include the MapTypeId to add
         // to the map type control.
+        //  center: {lat: 40.678, lng: -73.944},
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.708, lng: -73.957},
+          center: {lat: 40.678, lng: -73.944},
           zoom: 13,
 	        mapTypeControlOptions: {
             mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
@@ -141,7 +143,7 @@
 
   var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
   var beerdMarker = new google.maps.Marker({
-    position: {lat: 40.708, lng: -73.957},
+    position: {lat: 40.678, lng: -73.944},
     map: map,
     icon: image
 
@@ -212,6 +214,7 @@
 
  var queryURL = "http://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
 
+ var idApi = [];
 
  $.ajax({
      url:queryURL,
@@ -221,33 +224,40 @@
       console.log(results);
 
     for (var i = 0; i < results.length-58; i++) {
-        var newDiv = $("<p>");
-        newDiv.addClass("brewAdd");
-        newDiv.html(results[i].street);
+        var newDiv = $("<a>");
+        newDiv.addClass("brewAdd waves-effect waves-light btn");
+        newDiv.html(results[i].name);
         $("#address1").append(newDiv);
-        console.log(results[i].street);
-
+        console.log(results[i].name);
+        idResult = results[i].id;
+        console.log("the results are " + idResult);
+        idApi.push(idResult);
     }
 
-   });
+    console.log(idApi);
+
+    for (var i = 0; i < idApi.length; i++) {
+        var idUrl = "http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + idApi[i] + "&s=json";
+
+        //http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/ID
+        //+++++++++++++++++++ BEER MAP AJAX CALL for lat long START +++++++++++
+        $.ajax({
+            url:idUrl,
+            method:"GET",
+          }).done(function(response){
+            // var results = response;
+            console.log(response);
+            for(j=0; j<response.length; j++){
+              var lat = response[j].lat;
+              var lng = response[j].lng;
+              console.log(lat);
+              console.log(lng);
+            }
 
 
-//http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/ID
-var idURL = "http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + results[i] + "&s=json"
-
-
-$.ajax({
-    url:idURL,
-    method:"GET"
-  }).done(function(response){
-    var results = response;
-     console.log(results[0].lat);
-     console.log(results[0].lng);
-  });
-
-
-
-
+          });
+    }
+});
 
 
 

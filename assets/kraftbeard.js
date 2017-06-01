@@ -8,7 +8,6 @@
 // //It creates and automatically loads the STYLED version of the map--default map is an option, however.
 // //Colors are based on Front-End's chosen color for the KraftBeerd heading; I plugged the color into Adobe & got a theme.
 // //Front-End, feel free to choose a different theme and plug those colors in below:
-// Some other comment
 
      function initMap() {
 
@@ -128,12 +127,11 @@
 
         // Create a map object, and include the MapTypeId to add
         // to the map type control.
-        //  center: {lat: 40.678, lng: -73.944},
 
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 40.678, lng: -73.944},
           zoom: 13,
-	        mapTypeControlOptions: {
+          mapTypeControlOptions: {
             mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                     'styled_map']
           },
@@ -157,39 +155,47 @@
         //latlng : Latitude: 40.72173, Longitude: -73.95805
         //mock up of adding lat long to create a new marker on The map
         function addMark(){
-        var myLatlng = new google.maps.LatLng(40.72173,-73.95805);
-        var mapOptions = {
-          zoom: 18,
-          center: myLatlng
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+              var myLatlng = new google.maps.LatLng(40.678,-73.994);
+              var mapOptions = {
+                zoom: 13,
+                center: myLatlng
+              }
 
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            title:"Hello World!"
-        });
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-        var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
-        var beerdMarker = new google.maps.Marker({
-          position: {lat: 40.72173, lng: -73.95805},
-          map: map,
-          icon: image
+              var bars = [
+                ['Brooklyn Brewery', 40.7215, -73.9577],
+                ['Greenpoint Beerworks', 40.6824, -73.9654],
+                ['Sixpoint Craft Ales', 40.6739, -74.0119],
+                ['Waterfront Alehouse', 40.6906, -73.9949],
+                ['Soda Bar', 40.6781, -73.9684],
+                ['Red Hook Bait And Tackle', 40.670448, -73.981926],
+                ['12th Street Bar and Grill', 40.664417, -73.980331]
+              ];
 
-        });
-        // To add the marker to the map, call setMap();
-        beerdMarker.setMap(map);
-        //Associate the styled map with the MapTypeId and set it to display.
-        map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map');
-        }
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: bar[1], lng: bar[2]},
+                  map: map,
+                  icon: image,
 
-        $("#brewME").on("click", function(event){
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }//end addMark()
         addMark();
-        })
-}
+
+}//end initMap
 
   $(document).ready(function() {
-    		console.log( "ready!" );
+        console.log( "ready!" );
 
 
     // Initialize Firebase
@@ -207,61 +213,106 @@
 
 
 
-//+++++++++++++++++++ BEER MAP API KEY AND AJAX CALL ++++++++++++++++++
+  //+++++++++++++++++++ BEER MAP API KEY AND AJAX CALL ++++++++++++++++++
 
 
-//beer mapping api key :  688a37b4a7135bbd9cadc8adec782fb2
+  //beer mapping api key :  688a37b4a7135bbd9cadc8adec782fb2
 
- var queryURL = "http://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
+   var queryURL = "http://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
 
- var idApi = [];
+   var idApi = [];
+   var barName= [];
+   var barLat=[]
+   var barLong=[];
+   console.log(barLat);
+   console.log(barLat);
+   console.log(barName);
 
- $.ajax({
-     url:queryURL,
-     method:"GET"
-   }).done(function(response){
-     var results = response;
-      console.log(results);
+   $.ajax({
+       url:queryURL,
+       method:"GET"
+     }).done(function(response){
+       var results = response;
+        console.log(results);
 
-    for (var i = 0; i < results.length-58; i++) {
-        var newDiv = $("<a>");
-        newDiv.addClass("brewAdd waves-effect waves-light btn");
-        newDiv.html(results[i].name);
-        $("#address1").append(newDiv);
-        console.log(results[i].name);
-        idResult = results[i].id;
-        console.log("the results are " + idResult);
-        idApi.push(idResult);
-    }
+          for (var i = 0; i < results.length-58; i++) {
+              var newDiv = $("<a>");
+              newDiv.addClass("waves-effect waves-light btn");
+              newDiv.attr("id", "modal")
+              newDiv.attr("data-name", results[i].name)
+              newDiv.html(results[i].name);
+              $("#name").append(newDiv);
+              console.log(results[i].name);
+              idResult = results[i].id;
+              console.log("the results are " + idResult);
+              idApi.push(idResult);
+              barName.push(results[i].name);
+          }
 
-    console.log(idApi);
+          console.log(idApi);
+          //for loop to assign map location from each ID to get LATLONG AJAXCALL
+          for (var i = 0; i < idApi.length; i++) {
+              var idUrl = "http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + idApi[i] + "&s=json";
 
-    for (var i = 0; i < idApi.length; i++) {
-        var idUrl = "http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + idApi[i] + "&s=json";
+              //+++++++++++++++++++ BEER MAP AJAX CALL for lat long START +++++++++++
+              $.ajax({
+                  url:idUrl,
+                  method:"GET",
+                }).done(function(response){
+                  // var results = response;
+                  console.log(response[0].lat);
 
-        //http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/ID
-        //+++++++++++++++++++ BEER MAP AJAX CALL for lat long START +++++++++++
-        $.ajax({
-            url:idUrl,
-            method:"GET",
-          }).done(function(response){
-            // var results = response;
-            console.log(response);
-            for(j=0; j<response.length; j++){
-              var lat = response[j].lat;
-              var lng = response[j].lng;
-              console.log(lat);
-              console.log(lng);
-            }
+                  // forloop to loop through all id to get lat long
+                      for(j=0; j<response.length; j++){
+                        var lat = response[j].lat;
+                        var lng = response[j].lng;
+                        barLat.push(lat);
+                        barLong.push(lng);
+                        // console.log(lat);
+                        // console.log(lng);
+                      }
+                });//end done function for 2nd ajax call
 
+            }//for loop idApi.length
 
-          });
-    }
-});
+                //+++++++++++++++++++ onclick event listners for MODALS +++++++++++
+                $("a[data-name = 'Brooklyn Brewery']").on("click", function(event){
+                  alert("THIS IS THE BAR NAME " + response[0].name);
+                  alert("THIS IS THE LAT FOR BAR " + barLat[0]);
+                  alert("THIS IS THE LONG FOR BAR " + barLong[0]);
+                });
 
+                $("a[data-name = 'Greenpoint Beerworks']").on("click", function(event){
+                  alert("THIS IS THE BAR NAME " + response[1].name);
+                  alert("THIS IS THE LAT FOR BAR " + barLat[1]);
+                  alert("THIS IS THE LONG FOR BAR " + barLong[1]);
+                });
 
+                $("a[data-name = 'Sixpoint Craft Ales']").on("click", function(event){
+                  alert("THIS IS THE BAR NAME " + response[2].name);
+                  alert("THIS IS THE LAT FOR BAR " + barLat[2]);
+                  alert("THIS IS THE LONG FOR BAR " + barLong[2]);
+                });
 
+                $("a[data-name = 'Waterfront Alehouse - Brooklyn']").on("click", function(event){
+                  alert("THIS IS THE BAR NAME " + response[3].name);
+                  alert("THIS IS THE LAT FOR BAR " + barLat[3]);
+                  alert("THIS IS THE LONG FOR BAR " + barLong[3]);
+                });
 
+                $("a[data-name = 'Soda Bar']").on("click", function(event){
+                  alert("THIS IS THE BAR NAME " + response[4].name);
+                  alert("THIS IS THE LAT FOR BAR " + barLat[4]);
+                  alert("THIS IS THE LONG FOR BAR " + barLong[4]);
+                });
+
+                $("a[data-name = 'Spuyten Duyvil']").on("click", function(event){
+                  alert("THIS IS THE BAR NAME " + response[5].name);
+                  alert("THIS IS THE LAT FOR BAR " + barLat[5]);
+                  alert("THIS IS THE LONG FOR BAR " + barLong[5]);
+                });
+
+  });//end first ajax call
 
 
 // });

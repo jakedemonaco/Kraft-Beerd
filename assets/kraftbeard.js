@@ -218,7 +218,7 @@
 
   //beer mapping api key :  688a37b4a7135bbd9cadc8adec782fb2
 
-   var queryURL = "http://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
+   var queryURL = "https://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
 
    var idApi = [];
    var barName= [];
@@ -252,7 +252,7 @@
           console.log(idApi);
           //for loop to assign map location from each ID to get LATLONG AJAXCALL
           for (var i = 0; i < idApi.length; i++) {
-              var idUrl = "http://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + idApi[i] + "&s=json";
+              var idUrl = "https://beermapping.com/webservice/locmap/688a37b4a7135bbd9cadc8adec782fb2/" + idApi[i] + "&s=json";
 
               //+++++++++++++++++++ BEER MAP AJAX CALL for lat long START +++++++++++
               $.ajax({

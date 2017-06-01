@@ -28,7 +28,10 @@ h1 {
 #map{
 	height:400px;
 }
-
+#modal{
+	display: block;
+	margin-bottom: .85em;
+}
 p {
 	font-size: 20px;
 }

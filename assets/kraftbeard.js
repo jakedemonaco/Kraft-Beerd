@@ -74,7 +74,9 @@ function signOut() {
   }
 
 
-
+  $('.g-signin2').on("click", "#signIn", function(e) {
+      onSignIn();
+    });
 
 
      function initMap() {

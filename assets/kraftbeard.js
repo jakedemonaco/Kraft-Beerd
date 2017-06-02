@@ -29,7 +29,7 @@
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'https://adambatimana.github.io/TrainSched');
+    xhr.open('POST', 'https://jakedemonaco.github.io/Kraft-Beerd');
 
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -54,7 +54,7 @@
 
       gapi.load('auth2', function() {
         auth2 = gapi.auth2.init({
-          client_id: '949676794497-fi6l2lga6sepd6a0u3j2skr40ltd7ju5.apps.googleusercontent.com',
+          client_id: '580134311712-mefi6sqvababpcio3ef88e3a0kpuv3qs.apps.googleusercontent.com/',
           fetch_basic_profile: false,
           scope: 'profile'
         });

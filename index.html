@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <!--metatag for Log-In-->
-    <meta name="google-signin-client_id" content="949676794497ppjt4qseq2h3o76gd90fan.apps.googleusercontent.com-s5526ujhkr.apps.googleusercontent.com">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="580134311712-mefi6sqvababpcio3ef88e3a0kpuv3qs.apps.googleusercontent.com">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Reset CSS -->
@@ -40,8 +41,8 @@
     <div id="wrapper">
 
         <div class="row">
-          <div class="col s4">
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <div class="col s12">
+          <div id ="signIn" class="g-signin2" data-onsuccess="onSignIn"></div>
               <!-- spacer -->
           </div>
         </div>

@@ -268,6 +268,18 @@ function signOut() {
         console.log( "ready!" );
 
 
+
+$(document).ready(function(){
+   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+   $('#modal226').modal();
+   $('#modal551').modal();
+   $('#modal1212').modal();
+   $('#modal1613').modal();
+   $('#modal1610').modal();
+   $('#modal1612').modal();
+   $('#modal1609').modal();
+   $('#modal1608').modal();
+ });
     // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB3TT3u_TIoFFxglNbgOUv3WZ1KHwFOmfo",
@@ -280,12 +292,7 @@ function signOut() {
   firebase.initializeApp(config);
   });
 
-
-
-
   //+++++++++++++++++++ BEER MAP API KEY AND AJAX CALL ++++++++++++++++++
-
-
   //beer mapping api key :  688a37b4a7135bbd9cadc8adec782fb2
 
    var queryURL = "https://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
@@ -311,10 +318,11 @@ function signOut() {
               newDiv.attr("id", "modal")
               newDiv.attr("data-name", results[i].name)
               newDiv.html(results[i].name);
+              newDiv.attr("href", "#modal" + results[i].id);
               $("#name").append(newDiv);
-              console.log(results[i].name);
+              // console.log(results[i].name);
               idResult = results[i].id;
-              console.log("the results are " + idResult);
+              // console.log("the results are " + idResult);
               idApi.push(idResult);
               barName.push(results[i].name);
           }
@@ -330,7 +338,7 @@ function signOut() {
                   method:"GET",
                 }).done(function(response){
                   // var results = response;
-                  console.log(response[0].lat);
+                  // console.log(response[0].lat);
 
                   // forloop to loop through all id to get lat long
                       for(j=0; j<response.length; j++){
@@ -347,15 +355,20 @@ function signOut() {
 
                 //+++++++++++++++++++ onclick event listners for MODALS +++++++++++
                 $("a[data-name = 'Brooklyn Brewery']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[0].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[0]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[0]);
+                    $("#modal226 #nameBrew").html(response[0].name);
+                    $("#modal226 #streetBrew").html(response[0].street);
+                    $("#modal226 #cityBrew").html(response[0].city);
+                    $("#modal226 #phoneBrew").html(response[0].phone);
+                    $("#modal226 #urlBrew").html(response[0].url);
+
                 });
 
                 $("a[data-name = 'Greenpoint Beerworks']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[1].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[1]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[1]);
+                  $("#modal551 #nameBrew").html(response[1].name);
+                  $("#modal551 #streetBrew").html(response[1].street);
+                  $("#modal551 #cityBrew").html(response[1].city);
+                  $("#modal551 #phoneBrew").html(response[1].phone);
+                  $("#modal551 #urlBrew").html(response[1].url);
                 });
 
                 $("a[data-name = 'Sixpoint Craft Ales']").on("click", function(event){

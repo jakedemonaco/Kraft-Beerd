@@ -1,5 +1,8 @@
 //+++++++++++++++++++MAP IS NEEDED BEFORE DOCUMENT READY FUNCTION++++++++++++++++++
 
+//949676794497-fi6l2lga6sepd6a0u3j2skr40ltd7ju5.apps.googleusercontent.com
+//WpmHMae5nHoZHn9vanPoyAPr
+//192.168.1.255
 
 // //our starting lat: 40.708, lng: -73.957
 
@@ -8,6 +11,71 @@
 // //It creates and automatically loads the STYLED version of the map--default map is an option, however.
 // //Colors are based on Front-End's chosen color for the KraftBeerd heading; I plugged the color into Adobe & got a theme.
 // //Front-End, feel free to choose a different theme and plug those colors in below:
+ // =======================================================================
+  //                   GOOGLE LOG IN
+  // =======================================================================
+  function onSignIn(googleUser) {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', 'https://adambatimana.github.io/TrainSched');
+
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function() {
+      console.log('Signed in as: ' + xhr.responseText);
+    };
+
+    xhr.send('idtoken=' + id_token);
+    console.log("ID Token: " + id_token);
+    console.log(profile);
+
+
+    if (auth2.isSignedIn.get()) {
+        var profile = auth2.currentUser.get().getBasicProfile();
+        console.log('ID: ' + profile.getId());
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+      }
+
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '949676794497-fi6l2lga6sepd6a0u3j2skr40ltd7ju5.apps.googleusercontent.com',
+          fetch_basic_profile: false,
+          scope: 'profile'
+        });
+
+        // Sign the user in, and then retrieve their ID.
+        auth2.signIn().then(function() {
+          console.log(auth2.currentUser.get().getId());
+        });
+      });
+  };
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function() {
+      console.log('User signed out.');
+    });
+  }
+
+
+
+
 
      function initMap() {
 

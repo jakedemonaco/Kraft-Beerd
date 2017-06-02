@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <!--metatag for Log-In-->
+    <meta name="google-signin-client_id" content="949676794497ppjt4qseq2h3o76gd90fan.apps.googleusercontent.com-s5526ujhkr.apps.googleusercontent.com">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Reset CSS -->
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
@@ -20,10 +23,13 @@
     <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
     <!--Most stable and latest version of jQuery-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Log-in Library, Google-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
     <!--Google Maps: API call is done in this format-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVq_5rVixXpbEVR3iPtHR5sm6s4ikNxXY&callback=initMap"></script>
     <!-- External JS -->
-    <!-- <script src="assets/kraftbeard.js" type="text/javascript"></script> -->
     <script src="assets/kraftbeard.js" type="text/javascript"></script>
 
     <title>Kraft Beerd App</title>
@@ -43,6 +49,7 @@
                 </div>
             </div>
             <div class="col s2">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 <!-- spacer -->
             </div>
             <div class="col s5">

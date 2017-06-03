@@ -147,17 +147,17 @@ function signOut() {
               {
                 featureType: 'road.highway',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#4B416C'}]
+                stylers: [{color: '#ba8902'}]
               },
               {
                 featureType: 'road.highway.controlled_access',
                 elementType: 'geometry',
-                stylers: [{color: '#4B416C'}]
+                stylers: [{color: '#ba8902'}]
               },
               {
                 featureType: 'road.highway.controlled_access',
                 elementType: 'geometry.stroke',
-                stylers: [{color: '#4B416C'}]
+                stylers: [{color: '#ba8902'}]
               },
               {
                 featureType: 'road.local',

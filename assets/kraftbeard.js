@@ -1,5 +1,8 @@
 //+++++++++++++++++++MAP IS NEEDED BEFORE DOCUMENT READY FUNCTION++++++++++++++++++
 
+//949676794497-fi6l2lga6sepd6a0u3j2skr40ltd7ju5.apps.googleusercontent.com
+//WpmHMae5nHoZHn9vanPoyAPr
+//192.168.1.255
 
 // //our starting lat: 40.708, lng: -73.957
 
@@ -8,6 +11,73 @@
 // //It creates and automatically loads the STYLED version of the map--default map is an option, however.
 // //Colors are based on Front-End's chosen color for the KraftBeerd heading; I plugged the color into Adobe & got a theme.
 // //Front-End, feel free to choose a different theme and plug those colors in below:
+ // =======================================================================
+  //                   GOOGLE LOG IN
+  // =======================================================================
+  function onSignIn(googleUser) {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', 'https://jakedemonaco.github.io/Kraft-Beerd');
+
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function() {
+      console.log('Signed in as: ' + xhr.responseText);
+    };
+
+    xhr.send('idtoken=' + id_token);
+    console.log("ID Token: " + id_token);
+    console.log(profile);
+
+
+    if (auth2.isSignedIn.get()) {
+        var profile = auth2.currentUser.get().getBasicProfile();
+        console.log('ID: ' + profile.getId());
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+      }
+
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '580134311712-mefi6sqvababpcio3ef88e3a0kpuv3qs.apps.googleusercontent.com/',
+          fetch_basic_profile: false,
+          scope: 'profile'
+        });
+
+        // Sign the user in, and then retrieve their ID.
+        auth2.signIn().then(function() {
+          console.log(auth2.currentUser.get().getId());
+        });
+      });
+  };
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function() {
+      console.log('User signed out.');
+    });
+  }
+
+
+  $('.g-signin2').on("click", "#signIn", function(e) {
+      onSignIn();
+    });
+
 
      
      
@@ -200,6 +270,18 @@
         console.log( "ready!" );
 
 
+
+$(document).ready(function(){
+   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+   $('#modal226').modal();
+   $('#modal551').modal();
+   $('#modal1212').modal();
+   $('#modal1613').modal();
+   $('#modal1610').modal();
+   $('#modal1612').modal();
+   $('#modal1609').modal();
+   $('#modal1608').modal();
+ });
     // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB3TT3u_TIoFFxglNbgOUv3WZ1KHwFOmfo",
@@ -212,12 +294,7 @@
   firebase.initializeApp(config);
   });
 
-
-
-
   //+++++++++++++++++++ BEER MAP API KEY AND AJAX CALL ++++++++++++++++++
-
-
   //beer mapping api key :  688a37b4a7135bbd9cadc8adec782fb2
 
    var queryURL = "https://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
@@ -244,10 +321,11 @@
               newDiv.attr("data-name", results[i].name)
               newDiv.attr("data-target", "modal1")
               newDiv.html(results[i].name);
+              newDiv.attr("href", "#modal" + results[i].id);
               $("#name").append(newDiv);
-              console.log(results[i].name);
+              // console.log(results[i].name);
               idResult = results[i].id;
-              console.log("the results are " + idResult);
+              // console.log("the results are " + idResult);
               idApi.push(idResult);
               barName.push(results[i].name);
 
@@ -264,7 +342,7 @@
                   method:"GET",
                 }).done(function(response){
                   // var results = response;
-                  console.log(response[0].lat);
+                  // console.log(response[0].lat);
 
                   // forloop to loop through all id to get lat long
                       for(j=0; j<response.length; j++){
@@ -281,15 +359,20 @@
 
                 //+++++++++++++++++++ onclick event listners for MODALS +++++++++++
                 $("a[data-name = 'Brooklyn Brewery']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[0].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[0]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[0]);
+                    $("#modal226 #nameBrew").html(response[0].name);
+                    $("#modal226 #streetBrew").html(response[0].street);
+                    $("#modal226 #cityBrew").html(response[0].city);
+                    $("#modal226 #phoneBrew").html(response[0].phone);
+                    $("#modal226 #urlBrew").html(response[0].url);
+
                 });
 
                 $("a[data-name = 'Greenpoint Beerworks']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[1].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[1]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[1]);
+                  $("#modal551 #nameBrew").html(response[1].name);
+                  $("#modal551 #streetBrew").html(response[1].street);
+                  $("#modal551 #cityBrew").html(response[1].city);
+                  $("#modal551 #phoneBrew").html(response[1].phone);
+                  $("#modal551 #urlBrew").html(response[1].url);
                 });
 
                 $("a[data-name = 'Sixpoint Craft Ales']").on("click", function(event){

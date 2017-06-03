@@ -1,43 +1,102 @@
 body {
-	background-image: url(../assets/images/RCBCbackgroundHalf.png);
-	/*background-size: contain;  this should work, it did before we altered the image hight, the following css works but distorts our text*/
+	background-image: url(../assets/images/background-half.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	background-color: #feecdf;
 }
 
-h1 {
-	font-family: "News Cycle", sans-serif;
-	font-size: 450px;
+/*HEADER*/
+#title {
+	font-family: "Oswald", sans-serif;
+	font-size: 200px;
+	color: #feecdf;
+	letter-spacing: 10px;
+	margin-left: 15%;
+	margin-top: 0;
 }
 
+#title2 {
+	font-family: "Oswald", sans-serif;
+	font-size: 200px;
+	color: #c76828;
+	letter-spacing: 10px;
+	margin-top: 0;
+	margin-left: -2%;
+}
+
+.row .col {
+	padding: 0;
+}
+
+/*CENTER CONTENT*/
 #wrapper {
-	margin-top: 20%;
 	margin-left: 5%;
 	margin-right: 6%;
 }
 
-.card-content {
-  font-family: 'Raleway', sans-serif;
+#center-content {
+	margin-left: 10%;
+	padding: 5px;
 }
 
-.card-title {
-  font-family: 'Raleway', sans-serif;
+/*CARD*/
+.card {
+	margin-left: 50px;
+}
+
+.card .card-content .card-title {
+  font-family: "Oswald", sans-serif;
+	text-align: center;
+	letter-spacing: 2px;
+	color: #333;
+	font-size: 30px;
+	margin-bottom: 15px;
 }
 
 #map {
-	height:400px;
+	height:575px;
+	width: 450px;
 }
 
-#modal {
+/*MODAL*/
+#modal1 {
 	display: block;
 	margin-bottom: .85em;
+	margin-left: 10px;
+}
+
+.modal .modal-content {
+	background-color: #fff;
+	text-align: center;
+}
+
+/*BUTTONS*/
+.btn {
+	background-color: #999;
+}
+
+.btn:hover {
+	background-color:#333;
+}
+
+.btn:active {
+	background-color: #999;
+}
+
+.btn:visited {
+	background-color: #999;
+}
+
+/*MODAL TEXT*/
+#nameBrew {
+	font-family: "Oswald", sans-serif;
+	font-size: 50px;
+	margin-bottom: 30px;
 }
 
 p {
+	font-family: "Raleway", sans-serif;
+	font-style: italic;
 	font-size: 20px;
 	margin-bottom: 20px;
-}
-
-.card-content {
-	background-color: #ffffff;
 }

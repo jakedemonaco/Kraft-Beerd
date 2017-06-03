@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Reset CSS -->
   <link rel="stylesheet" type="text/css" href="assets/reset.css">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
   <!-- Materialize Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway:300i,400" rel="stylesheet">
   <!-- Makes Button Icon Work -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Firebase-->
@@ -38,13 +38,6 @@
 
   <!-- map and results -->
   <div id="wrapper">
-
-    <div class="row">
-      <div class="col s12">
-        <div id="signIn" class="g-signin2" data-onsuccess="onSignIn"></div>
-        <!-- spacer -->
-      </div>
-    </div>
 
     <div class="row">
       <div class="col s12">
@@ -154,8 +147,22 @@
     </div>
     </div>
 
+<!-- TITLE -->
     <div class="row">
-      <div class="col s5">
+      <div class="col s6">
+        <h1 id="title">KRAFT</h1>
+      </div>
+      <div class="col s6">
+        <h1 id="title2">BEERD</h1>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col s1"></div>
+
+      <div class="col s4">
         <div class="card white darken-1 z-depth-0">
           <div class="card-content black-text" id="map">
             <!--Google Maps API div-->
@@ -165,7 +172,9 @@
         </div>
       </div>
 
-      <div class="col s5">
+      <div class="col s1"></div>
+
+      <div class="col s4">
         <div class="card white darken-1 z-depth-0">
           <div class="card-content black-text">
             <span class="card-title">RESULTS</span>
@@ -177,11 +186,9 @@
           </div>
         </div>
       </div>
+      <div class="col s1"></div>
     </div>
-    <div class="center" id="summaryText">
-      <p>Kraft Beerd is a Brewery Search app focusing on the general Brooklyn area.</p>
-    </div>
-  </div>
+
 </body>
 
 </html>

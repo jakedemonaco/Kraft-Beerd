@@ -279,6 +279,10 @@ $(document).ready(function(){
    $('#modal1612').modal();
    $('#modal1609').modal();
    $('#modal1608').modal();
+   $('#modal1587').modal();
+   $('#modal1607').modal();
+
+
  });
     // Initialize Firebase
   var config = {
@@ -372,29 +376,68 @@ $(document).ready(function(){
                 });
 
                 $("a[data-name = 'Sixpoint Craft Ales']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[2].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[2]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[2]);
+                  $("#modal1212 #nameBrew").html(response[2].name);
+                  $("#modal1212 #streetBrew").html(response[2].street);
+                  $("#modal1212 #cityBrew").html(response[2].city);
+                  $("#modal1212 #phoneBrew").html(response[2].phone);
+                  $("#modal1212 #urlBrew").html(response[2].url);
                 });
 
                 $("a[data-name = 'Waterfront Alehouse - Brooklyn']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[3].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[3]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[3]);
+                  $("#modal1613 #nameBrew").html(response[3].name);
+                  $("#modal1613 #streetBrew").html(response[3].street);
+                  $("#modal1613 #cityBrew").html(response[3].city);
+                  $("#modal1613 #phoneBrew").html(response[3].phone);
+                  $("#modal1613 #urlBrew").html(response[3].url);
                 });
 
                 $("a[data-name = 'Soda Bar']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[4].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[4]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[4]);
+                  $("#modal1610 #nameBrew").html(response[4].name);
+                  $("#modal1610 #streetBrew").html(response[4].street);
+                  $("#modal1610 #cityBrew").html(response[4].city);
+                  $("#modal1610 #phoneBrew").html(response[4].phone);
+                  $("#modal1610 #urlBrew").html(response[4].url);
                 });
 
                 $("a[data-name = 'Spuyten Duyvil']").on("click", function(event){
-                  alert("THIS IS THE BAR NAME " + response[5].name);
-                  alert("THIS IS THE LAT FOR BAR " + barLat[5]);
-                  alert("THIS IS THE LONG FOR BAR " + barLong[5]);
+                  $("#modal1612 #nameBrew").html(response[5].name);
+                  $("#modal1612 #streetBrew").html(response[5].street);
+                  $("#modal1612 #cityBrew").html(response[5].city);
+                  $("#modal1612 #phoneBrew").html(response[5].phone);
+                  $("#modal1612 #urlBrew").html(response[5].url);
                 });
 
+                $("a[data-name = 'Sample']").on("click", function(event){
+                  $("#modal1609 #nameBrew").html(response[6].name);
+                  $("#modal1609 #streetBrew").html(response[6].street);
+                  $("#modal1609 #cityBrew").html(response[6].city);
+                  $("#modal1609 #phoneBrew").html(response[6].phone);
+                  $("#modal1609 #urlBrew").html(response[6].url);
+                });
+
+                $("a[data-name = 'Red Hook Bait And Tackle']").on("click", function(event){
+                  $("#modal1608 #nameBrew").html(response[7].name);
+                  $("#modal1608 #streetBrew").html(response[7].street);
+                  $("#modal1608 #cityBrew").html(response[7].city);
+                  $("#modal1608 #phoneBrew").html(response[7].phone);
+                  $("#modal1608 #urlBrew").html(response[7].url);
+                });
+
+                $("a[data-name ='Park Slope Ale House']").on("click", function(event){
+                  $("#modal1607 #nameBrew").html(response[9].name);
+                  $("#modal1607 #streetBrew").html(response[9].street);
+                  $("#modal1607 #cityBrew").html(response[9].city);
+                  $("#modal1607 #phoneBrew").html(response[9].phone);
+                  $("#modal1607 #urlBrew").html(response[9].url);
+                });
+
+                $("a[data-name ='12th Street Bar and Grill']").on("click", function(event){
+                  $("#modal1587 #nameBrew").html(response[8].name);
+                  $("#modal1587 #streetBrew").html(response[8].street);
+                  $("#modal1587 #cityBrew").html(response[8].city);
+                  $("#modal1587 #phoneBrew").html(response[8].phone);
+                  $("#modal1587 #urlBrew").html(response[8].url);
+                });
   });//end first ajax call
 
 

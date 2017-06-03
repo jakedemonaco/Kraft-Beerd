@@ -1,4 +1,19 @@
-//+++++++++++++++++++MAP IS NEEDED BEFORE DOCUMENT READY FUNCTION++++++++++++++++++
+   var idApi = [];
+   var barName= [];
+   var barLat=[];
+   var barLong=[];
+
+   var bars = [
+                ['Brooklyn Brewery', 40.7215, -73.9577],
+                ['Greenpoint Beerworks', 40.6824, -73.9654],
+                ['Sixpoint Craft Ales', 40.6739, -74.0119],
+                ['Waterfront Alehouse', 40.6906, -73.9949],
+                ['Soda Bar', 40.6781, -73.9684],
+                ['Red Hook Bait And Tackle', 40.670448, -73.981926],
+                ['12th Street Bar and Grill', 40.664417, -73.980331]
+              ];
+
+              //+++++++++++++++++++MAP IS NEEDED BEFORE DOCUMENT READY FUNCTION++++++++++++++++++
 
 //949676794497-fi6l2lga6sepd6a0u3j2skr40ltd7ju5.apps.googleusercontent.com
 //WpmHMae5nHoZHn9vanPoyAPr
@@ -235,15 +250,7 @@ function signOut() {
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              var bars = [
-                ['Brooklyn Brewery', 40.7215, -73.9577],
-                ['Greenpoint Beerworks', 40.6824, -73.9654],
-                ['Sixpoint Craft Ales', 40.6739, -74.0119],
-                ['Waterfront Alehouse', 40.6906, -73.9949],
-                ['Soda Bar', 40.6781, -73.9684],
-                ['Red Hook Bait And Tackle', 40.670448, -73.981926],
-                ['12th Street Bar and Grill', 40.664417, -73.980331]
-              ];
+              
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -264,7 +271,7 @@ function signOut() {
         }//end addMark()
         addMark();
 
-}//end initMap
+
 
   $(document).ready(function() {
         console.log( "ready!" );
@@ -303,10 +310,7 @@ $(document).ready(function(){
 
    var queryURL = "https://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
 
-   var idApi = [];
-   var barName= [];
-   var barLat=[]
-   var barLong=[];
+  
    console.log(barLat);
    console.log(barLat);
    console.log(barName);
@@ -368,6 +372,7 @@ $(document).ready(function(){
                     $("#modal226 #cityBrew").html(response[0].city);
                     $("#modal226 #phoneBrew").html(response[0].phone);
                     $("#modal226 #urlBrew").html(response[0].url);
+                    brookMark();
 
                 });
 
@@ -377,6 +382,7 @@ $(document).ready(function(){
                   $("#modal551 #cityBrew").html(response[1].city);
                   $("#modal551 #phoneBrew").html(response[1].phone);
                   $("#modal551 #urlBrew").html(response[1].url);
+                  greenMark();
                 });
 
                 $("a[data-name = 'Sixpoint Craft Ales']").on("click", function(event){
@@ -385,6 +391,7 @@ $(document).ready(function(){
                   $("#modal1212 #cityBrew").html(response[2].city);
                   $("#modal1212 #phoneBrew").html(response[2].phone);
                   $("#modal1212 #urlBrew").html(response[2].url);
+                  sixMark();
                 });
 
                 $("a[data-name = 'Waterfront Alehouse - Brooklyn']").on("click", function(event){
@@ -393,6 +400,7 @@ $(document).ready(function(){
                   $("#modal1613 #cityBrew").html(response[3].city);
                   $("#modal1613 #phoneBrew").html(response[3].phone);
                   $("#modal1613 #urlBrew").html(response[3].url);
+                  waterMark();
                 });
 
                 $("a[data-name = 'Soda Bar']").on("click", function(event){
@@ -401,6 +409,7 @@ $(document).ready(function(){
                   $("#modal1610 #cityBrew").html(response[4].city);
                   $("#modal1610 #phoneBrew").html(response[4].phone);
                   $("#modal1610 #urlBrew").html(response[4].url);
+                  sodaMark();
                 });
 
                 $("a[data-name = 'Spuyten Duyvil']").on("click", function(event){
@@ -409,6 +418,7 @@ $(document).ready(function(){
                   $("#modal1612 #cityBrew").html(response[5].city);
                   $("#modal1612 #phoneBrew").html(response[5].phone);
                   $("#modal1612 #urlBrew").html(response[5].url);
+                  spuytenMark();
                 });
 
                 $("a[data-name = 'Sample']").on("click", function(event){
@@ -417,6 +427,7 @@ $(document).ready(function(){
                   $("#modal1609 #cityBrew").html(response[6].city);
                   $("#modal1609 #phoneBrew").html(response[6].phone);
                   $("#modal1609 #urlBrew").html(response[6].url);
+                  sampleMark();
                 });
 
                 $("a[data-name = 'Red Hook Bait And Tackle']").on("click", function(event){
@@ -425,6 +436,7 @@ $(document).ready(function(){
                   $("#modal1608 #cityBrew").html(response[7].city);
                   $("#modal1608 #phoneBrew").html(response[7].phone);
                   $("#modal1608 #urlBrew").html(response[7].url);
+                  redMark();
                 });
 
                 $("a[data-name ='Park Slope Ale House']").on("click", function(event){
@@ -433,6 +445,7 @@ $(document).ready(function(){
                   $("#modal1607 #cityBrew").html(response[9].city);
                   $("#modal1607 #phoneBrew").html(response[9].phone);
                   $("#modal1607 #urlBrew").html(response[9].url);
+                  parkMark();
                 });
 
                 $("a[data-name ='12th Street Bar and Grill']").on("click", function(event){
@@ -441,8 +454,319 @@ $(document).ready(function(){
                   $("#modal1587 #cityBrew").html(response[8].city);
                   $("#modal1587 #phoneBrew").html(response[8].phone);
                   $("#modal1587 #urlBrew").html(response[8].url);
+                  twelvthMark();
+
                 });
   });//end first ajax call
+function brookMark(){
+              var myLatlng = new google.maps.LatLng(40.7215,-73.9577);
+              var mapOptions = {
+                zoom: 15,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.7215, lng: -73.9577},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+
+        function greenMark(){
+              var myLatlng = new google.maps.LatLng(40.6824,-73.9654);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6824, lng: -73.9654},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+        function sixMark(){
+              var myLatlng = new google.maps.LatLng(40.6739,-74.0119);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6739, lng: -74.0119},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+        function waterMark(){
+              var myLatlng = new google.maps.LatLng(40.6644,-73.9803);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6644, lng: -73.9803},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+        function sodaMark(){
+              var myLatlng = new google.maps.LatLng(40.6781,-73.9684);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6781, lng: -73.9684},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+        function spuytenMark(){
+              var myLatlng = new google.maps.LatLng(40.8812,-73.9154);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.8812, lng: -73.9154},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+
+        function sampleMark(){
+              var myLatlng = new google.maps.LatLng(40.6739,-73.9684);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6739, lng: -73.9684},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+
+
+
+        function redMark(){
+              var myLatlng = new google.maps.LatLng(40.6791,-74.0111);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6791, lng: -74.0111},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+
+        function twelvthMark(){
+              var myLatlng = new google.maps.LatLng(40.6640,-73.9805);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6640, lng: -73.9805},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
+
+
+
+        function parkMark(){
+              var myLatlng = new google.maps.LatLng(40.6706,-73.9820);
+              var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+              }
+
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+              
+
+              var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
+              for (var i = 0; i < bars.length; i++) {
+                var bar = bars[i];
+                var multiMarker = new google.maps.Marker({
+                  position: {lat: 40.6706, lng: -73.9820},
+                  map: map,
+                  icon: image,
+
+                });
+              }
+
+              // To add the marker to the map, call setMap();
+              multiMarker.setMap(map);
+              //Associate the styled map with the MapTypeId and set it to display.
+              map.mapTypes.set('styled_map', styledMapType);
+              map.setMapTypeId('styled_map');
+        }
 
 
 // });
+}//end initMap
+
+
+

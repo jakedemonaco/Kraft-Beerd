@@ -35,7 +35,6 @@ body {
 }
 
 #center-content {
-	margin-left: 9.7%;
 	padding: 5px;
 }
 
@@ -54,8 +53,8 @@ body {
 }
 
 #map {
-	height:575px;
-	width: 450px;
+	height:580px;
+	width: 472px;
 }
 
 /*MODAL*/

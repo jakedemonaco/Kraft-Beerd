@@ -34,7 +34,7 @@
     <div id="wrapper">
         <div class="row">
             <div class="col s5">
-                <div class="card white darken-1 z-depth-0">
+                <div class="card white darken-1 z-depth-0" id="mapBox">
                     <div class="card-content black-text" id="map">
                         <!--Google Maps API div-->
                         <span class="card-title">MAP</span>
@@ -46,20 +46,37 @@
                 <!-- spacer -->
             </div>
             <div class="col s5">
-                <div class="card white darken-1 z-depth-0">
+                <div class="card white darken-1 z-depth-0" id="resultsBox">
                     <div class="card-content black-text">
                         <span class="card-title">RESULTS</span>
+                        
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn" href="#modal1">Name</a>
+
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Modal Header</h4>
+                                <p>A bunch of text</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+
                         <div id="name"></div>
                         <div id="rating"></div>
                         <div id="address1"></div>
                         <div id="price"></div>
                         <div id="phone"></div>
+                    
+
                     </div>
                 </div>
             </div>
         </div>
         <div class="center" id="summaryText">
-            <p>Kraft Beered is a Brewery Search app focusing on the general Brooklyn area.</p>
+            <p>Kraft Beerd is a Brewery Search app focusing on the general Brooklyn area.</p>
         </div>
     </div>
 </body>

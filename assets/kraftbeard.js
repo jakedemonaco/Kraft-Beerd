@@ -9,6 +9,8 @@
 // //Colors are based on Front-End's chosen color for the KraftBeerd heading; I plugged the color into Adobe & got a theme.
 // //Front-End, feel free to choose a different theme and plug those colors in below:
 
+     
+     
      function initMap() {
 
 
@@ -238,8 +240,9 @@
           for (var i = 0; i < results.length-58; i++) {
               var newDiv = $("<a>");
               newDiv.addClass("waves-effect waves-light btn");
-              newDiv.attr("id", "modal")
+              newDiv.attr("id", "modal1")
               newDiv.attr("data-name", results[i].name)
+              newDiv.attr("data-target", "modal1")
               newDiv.html(results[i].name);
               $("#name").append(newDiv);
               console.log(results[i].name);
@@ -247,6 +250,7 @@
               console.log("the results are " + idResult);
               idApi.push(idResult);
               barName.push(results[i].name);
+
           }
 
           console.log(idApi);

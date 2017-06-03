@@ -1,10 +1,10 @@
 body {
-	background-color: #feecdf;
 	background-image: url(../assets/images/RCBCbackgroundHalf.png);
-	background-size: cover;
-	height: 100%;
+	/*background-size: contain;  this should work, it did before we altered the image hight, the following css works but distorts our text*/
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
+
 h1 {
 	font-family: "News Cycle", sans-serif;
 	font-size: 450px;
@@ -22,16 +22,22 @@ h1 {
 
 .card-title {
   font-family: 'Raleway', sans-serif;
-
 }
 
-#map{
+#map {
 	height:400px;
 }
-#modal{
+
+#modal {
 	display: block;
 	margin-bottom: .85em;
 }
+
 p {
 	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.card-content {
+	background-color: #ffffff;
 }

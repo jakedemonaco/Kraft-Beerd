@@ -250,7 +250,7 @@ function signOut() {
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -290,7 +290,7 @@ $(document).ready(function(){
    $('#modal1608').modal();
    $('#modal1587').modal();
    $('#modal1607').modal();
-
+  
 
  });
     // Initialize Firebase
@@ -310,7 +310,7 @@ $(document).ready(function(){
 
    var queryURL = "https://beermapping.com/webservice/loccity/688a37b4a7135bbd9cadc8adec782fb2/brooklyn,ny&s=json"
 
-  
+
    console.log(barLat);
    console.log(barLat);
    console.log(barName);
@@ -367,93 +367,93 @@ $(document).ready(function(){
 
                 //+++++++++++++++++++ onclick event listners for MODALS +++++++++++
                 $("a[data-name = 'Brooklyn Brewery']").on("click", function(event){
-                    $("#modal226 #nameBrew").html(response[0].name);
-                    $("#modal226 #streetBrew").html(response[0].street);
-                    $("#modal226 #cityBrew").html(response[0].city);
-                    $("#modal226 #phoneBrew").html(response[0].phone);
-                    $("#modal226 #urlBrew").html(response[0].url);
+                    $("#modal226 .nameBrew").html(response[0].name);
+                    $("#modal226 .streetBrew").html(response[0].street);
+                    $("#modal226 .cityBrew").html(response[0].city);
+                    $("#modal226 .phoneBrew").html(response[0].phone);
+                    $("#modal226 .urlBrew").html(response[0].url);
                     brookMark();
 
                 });
 
                 $("a[data-name = 'Greenpoint Beerworks']").on("click", function(event){
-                  $("#modal551 #nameBrew").html(response[1].name);
-                  $("#modal551 #streetBrew").html(response[1].street);
-                  $("#modal551 #cityBrew").html(response[1].city);
-                  $("#modal551 #phoneBrew").html(response[1].phone);
-                  $("#modal551 #urlBrew").html(response[1].url);
+                  $("#modal551 .nameBrew").html(response[1].name);
+                  $("#modal551 .streetBrew").html(response[1].street);
+                  $("#modal551 .cityBrew").html(response[1].city);
+                  $("#modal551 .phoneBrew").html(response[1].phone);
+                  $("#modal551 .urlBrew").html(response[1].url);
                   greenMark();
                 });
 
                 $("a[data-name = 'Sixpoint Craft Ales']").on("click", function(event){
-                  $("#modal1212 #nameBrew").html(response[2].name);
-                  $("#modal1212 #streetBrew").html(response[2].street);
-                  $("#modal1212 #cityBrew").html(response[2].city);
-                  $("#modal1212 #phoneBrew").html(response[2].phone);
-                  $("#modal1212 #urlBrew").html(response[2].url);
+                  $("#modal1212 .nameBrew").html(response[2].name);
+                  $("#modal1212 .streetBrew").html(response[2].street);
+                  $("#modal1212 .cityBrew").html(response[2].city);
+                  $("#modal1212 .phoneBrew").html(response[2].phone);
+                  $("#modal1212 .urlBrew").html(response[2].url);
                   sixMark();
                 });
 
                 $("a[data-name = 'Waterfront Alehouse - Brooklyn']").on("click", function(event){
-                  $("#modal1613 #nameBrew").html(response[3].name);
-                  $("#modal1613 #streetBrew").html(response[3].street);
-                  $("#modal1613 #cityBrew").html(response[3].city);
-                  $("#modal1613 #phoneBrew").html(response[3].phone);
-                  $("#modal1613 #urlBrew").html(response[3].url);
+                  $("#modal1613 .nameBrew").html(response[3].name);
+                  $("#modal1613 .streetBrew").html(response[3].street);
+                  $("#modal1613 .cityBrew").html(response[3].city);
+                  $("#modal1613 .phoneBrew").html(response[3].phone);
+                  $("#modal1613 .urlBrew").html(response[3].url);
                   waterMark();
                 });
 
                 $("a[data-name = 'Soda Bar']").on("click", function(event){
-                  $("#modal1610 #nameBrew").html(response[4].name);
-                  $("#modal1610 #streetBrew").html(response[4].street);
-                  $("#modal1610 #cityBrew").html(response[4].city);
-                  $("#modal1610 #phoneBrew").html(response[4].phone);
-                  $("#modal1610 #urlBrew").html(response[4].url);
+                  $("#modal1610 .nameBrew").html(response[4].name);
+                  $("#modal1610 .streetBrew").html(response[4].street);
+                  $("#modal1610 .cityBrew").html(response[4].city);
+                  $("#modal1610 .phoneBrew").html(response[4].phone);
+                  $("#modal1610 .urlBrew").html(response[4].url);
                   sodaMark();
                 });
 
                 $("a[data-name = 'Spuyten Duyvil']").on("click", function(event){
-                  $("#modal1612 #nameBrew").html(response[5].name);
-                  $("#modal1612 #streetBrew").html(response[5].street);
-                  $("#modal1612 #cityBrew").html(response[5].city);
-                  $("#modal1612 #phoneBrew").html(response[5].phone);
-                  $("#modal1612 #urlBrew").html(response[5].url);
+                  $("#modal1612 .nameBrew").html(response[5].name);
+                  $("#modal1612 .streetBrew").html(response[5].street);
+                  $("#modal1612 .cityBrew").html(response[5].city);
+                  $("#modal1612 .phoneBrew").html(response[5].phone);
+                  $("#modal1612 .urlBrew").html(response[5].url);
                   spuytenMark();
                 });
 
                 $("a[data-name = 'Sample']").on("click", function(event){
-                  $("#modal1609 #nameBrew").html(response[6].name);
-                  $("#modal1609 #streetBrew").html(response[6].street);
-                  $("#modal1609 #cityBrew").html(response[6].city);
-                  $("#modal1609 #phoneBrew").html(response[6].phone);
-                  $("#modal1609 #urlBrew").html(response[6].url);
+                  $("#modal1609 .nameBrew").html(response[6].name);
+                  $("#modal1609 .streetBrew").html(response[6].street);
+                  $("#modal1609 .cityBrew").html(response[6].city);
+                  $("#modal1609 .phoneBrew").html(response[6].phone);
+                  $("#modal1609 .urlBrew").html(response[6].url);
                   sampleMark();
                 });
 
                 $("a[data-name = 'Red Hook Bait And Tackle']").on("click", function(event){
-                  $("#modal1608 #nameBrew").html(response[7].name);
-                  $("#modal1608 #streetBrew").html(response[7].street);
-                  $("#modal1608 #cityBrew").html(response[7].city);
-                  $("#modal1608 #phoneBrew").html(response[7].phone);
-                  $("#modal1608 #urlBrew").html(response[7].url);
+                  $("#modal1608 .nameBrew").html(response[7].name);
+                  $("#modal1608 .streetBrew").html(response[7].street);
+                  $("#modal1608 .cityBrew").html(response[7].city);
+                  $("#modal1608 .phoneBrew").html(response[7].phone);
+                  $("#modal1608 .urlBrew").html(response[7].url);
                   redMark();
                 });
 
                 $("a[data-name ='Park Slope Ale House']").on("click", function(event){
-                  $("#modal1607 #nameBrew").html(response[9].name);
-                  $("#modal1607 #streetBrew").html(response[9].street);
-                  $("#modal1607 #cityBrew").html(response[9].city);
-                  $("#modal1607 #phoneBrew").html(response[9].phone);
-                  $("#modal1607 #urlBrew").html(response[9].url);
+                  $("#modal1607 .nameBrew").html(response[9].name);
+                  $("#modal1607 .streetBrew").html(response[9].street);
+                  $("#modal1607 .cityBrew").html(response[9].city);
+                  $("#modal1607 .phoneBrew").html(response[9].phone);
+                  $("#modal1607 .urlBrew").html(response[9].url);
                   parkMark();
                 });
 
                 $("a[data-name ='12th Street Bar and Grill']").on("click", function(event){
-                  $("#modal1587 #nameBrew").html(response[8].name);
-                  $("#modal1587 #streetBrew").html(response[8].street);
-                  $("#modal1587 #cityBrew").html(response[8].city);
-                  $("#modal1587 #phoneBrew").html(response[8].phone);
-                  $("#modal1587 #urlBrew").html(response[8].url);
+                  $("#modal1587 .nameBrew").html(response[8].name);
+                  $("#modal1587 .streetBrew").html(response[8].street);
+                  $("#modal1587 .cityBrew").html(response[8].city);
+                  $("#modal1587 .phoneBrew").html(response[8].phone);
+                  $("#modal1587 .urlBrew").html(response[8].url);
                   twelvthMark();
 
                 });
@@ -467,7 +467,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -498,7 +498,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -528,7 +528,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -558,7 +558,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -588,7 +588,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -618,7 +618,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -649,7 +649,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -682,7 +682,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -713,7 +713,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -744,7 +744,7 @@ function brookMark(){
 
               var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-              
+
 
               var image = 'https://funduval.files.wordpress.com/2017/05/beer-stein-marker1.png'
               for (var i = 0; i < bars.length; i++) {
@@ -767,6 +767,3 @@ function brookMark(){
 
 // });
 }//end initMap
-
-
-
